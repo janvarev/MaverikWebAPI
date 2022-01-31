@@ -11,6 +11,7 @@ app = FastAPI()
 import pyautogui
 import time
 
+version = "1.0"
 
 @app.get("/movemouse")
 async def movemouse(x:int=0, y:int=0):
@@ -74,5 +75,5 @@ async def translate(x:int=0, y:int=0, x2:int=0, y2:int = 0, copyTrans:int = 0):
 
 if __name__ == "__main__":
     multiprocessing.freeze_support()
-    print("Running translation server...")
+    print("Running translation server v{0}...".format(version))
     uvicorn.run("runtranslationserver:app", host="127.0.0.1", port=5001, log_level="info")
